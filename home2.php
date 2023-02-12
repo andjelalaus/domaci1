@@ -243,9 +243,7 @@ if ($profe->num_rows == 0) {
     <br><br>
     <div>
       <h4> Search Professor by name</h4>
-      <input type="text" id="myInput" onkeyup="funkcijaZaPretragu(0)" placeholder="Pretrazi profe">
-      <h4> Search Professor by role</h4>
-      <input type="text" id="myInput" onkeyup="funkcijaZaPretragu(4)" placeholder="Pretrazi profe">
+      <input type="text" id="myInput" onkeyup="performSearch(0)" placeholder="Pretrazi profe">
     </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -477,24 +475,24 @@ $('#changeformZ').submit(function () {
           
 
   
-          function funkcijaZaPretragu(arg) {
-              var input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById("myInput");
-              filter = input.value.toUpperCase();
-              table = document.getElementById("myTable");
-              tr = table.getElementsByTagName("tr");
-              for (i = 0; i < tr.length; i++) {
-                  td = tr[i].getElementsByTagName("td")[arg];
-                  if (td) {
-                      txtValue = td.textContent || td.innerText;
-                      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                          tr[i].style.display = "";
-                      } else {
-                          tr[i].style.display = "none";
-                      }
-                  }
+          function performSearch(colIndex) {
+            var inputField, filterValue, dataTable, tableRows, cellData, index, cellText;
+            inputField = document.getElementById("myInput");
+            filterValue = inputField.value.toUpperCase();
+            dataTable = document.getElementById("myTable");
+            tableRows = dataTable.getElementsByTagName("tr");
+            for (index = 0; index < tableRows.length; index++) {
+            cellData = tableRows[index].getElementsByTagName("td")[colIndex];
+            if (cellData) {
+                cellText = cellData.textContent || cellData.innerText;
+                if (cellText.toUpperCase().indexOf(filterValue) > -1) {
+                      tableRows[index].style.display = "";
+                } else {
+                  tableRows[index].style.display = "none";
               }
           }
+        }
+      }
           
           function show() {
     var t = document.getElementById("prikazProfi");
