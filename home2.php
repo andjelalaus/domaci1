@@ -346,6 +346,24 @@ echo "The current date and time is: $currentDateTime";
       
                   </div>
                   <button type="button" formmethod="post" id="brisiZ" class="btn btn-danger">Delete Role</button>
+                  <p>
+  <?php
+    $fortunes = array("You will have good luck and success in your future endeavors.",
+                      "Beware of impending doom.",
+                      "Today is your lucky day!");
+    $fortune = $fortunes[mt_rand(0, count($fortunes) - 1)];
+    echo $fortune;
+  ?>
+</p>
+<p>
+  <?php
+    $jokes = array("Why don't scientists trust atoms? Because they make up everything!",
+                   "Why was the math book sad? Because it had too many problems.",
+                   "Why did the tomato turn red? Because it saw the salad dressing!");
+    $joke = $jokes[array_rand($jokes)];
+    echo str_shuffle($joke);
+  ?>
+</p>
     <script>
       $('#dodajZ').submit(function(){
     event.preventDefault();
