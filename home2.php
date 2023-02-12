@@ -52,11 +52,42 @@ if ($profe->num_rows == 0) {
       th, td {
         text-align: center;
       }
-    
+      p,h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    color:rgb(11, 104, 104);
+
+}
+
+
     </style>
   </head>
   <body>
     <h1>Server Professors by their Role</h1>
+    <h2><?php
+
+$currentDateTime = date("Y-m-d");
+
+echo "The current date and time is: $currentDateTime";
+
+?></h2>
+<p class="text-center mt-5">
+    <?php
+      function randomCompliment() {
+        $compliments = [
+          "You are smart!",
+          "You are beautiful!",
+          "You are funny!",
+          "You are talented!",
+          "You are amazing!",
+          "You are a great friend!",
+        ];
+
+        return $compliments[array_rand($compliments)];
+      }
+
+      echo "Your compliment for today: " . randomCompliment();
+    ?>
     <div id="prikazProfi">
     <table id="myTable" class="table">
       <thead class="thead-light">
